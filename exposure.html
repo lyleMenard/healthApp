@@ -2,68 +2,52 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<title>Health App</title>
-	<link rel="stylesheet" href="style.css">
-    <form name="submit-to-google-sheet">
-    <p>
-    Have you been exposed to anyone who tested positive for Covid-19?
-    </p>
-    <input name="positive" type="radio" value=1>
-    <label for="positive">Yes</label>
-    <input name="positive" type="radio" value=0>
-    <label for="positive"> No</label><br>
-    <p>
-    Have you traveled outside of the state on a plane, train or public transportation in the last two weeks?
-    </p>
-    <input name="travel" type="radio" value=1>
-    <label for="travel">Yes</label>
-    <input name="travel" type="radio" value=0>
-    <label for="travel"> No</label><br>
-    <button type="submit">Send</button>
-        
-    </form>
+    <meta charset="utf-8">
+    <title>Health App</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const scriptURL = 'https://script.google.com/a/students.spa.edu/macros/s/AKfycbyZ9dPu2G8utf8ZQayPgvFsvcuQ1P7aR13HvitNdyd18o5jprc/exec'
+        const form = document.forms['submit-to-google-sheet']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => console.log('Success!', response))
+                .catch(error => console.error('Error!', error.message))
+        })
+
+    </script>
 </head>
 
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-<script>
-  const scriptURL = 'https://script.google.com/a/students.spa.edu/macros/s/AKfycbyZ9dPu2G8utf8ZQayPgvFsvcuQ1P7aR13HvitNdyd18o5jprc/exec'
-  const form = document.forms['submit-to-google-sheet']
-
-  form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => console.log('Success!', response))
-      .catch(error => console.error('Error!', error.message))
-  })
-</script>
-=======
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="utf-8">
-	<title>Health App</title>
-	<link rel="stylesheet" href="style.css">
-</head>
 <body>
-	<ul>
-        <li><a href="home.html">Home</a></li>
+    <ul>
+        <li><a href="main.html">Home</a></li>
         <li><a class="active" href="exposure.html">Exposure</a></li>
         <li><a href="symptoms.html">Symptoms</a></li>
         <li><a href="about.html">About</a></li>
     </ul>
+    <form name="submit-to-google-sheet">
+        <p>
+            Have you been exposed to anyone who tested positive for Covid-19?
+        </p>
+        <input name="positive" type="radio" value=1>
+        <label for="positive">Yes</label>
+        <input name="positive" type="radio" value=0>
+        <label for="positive"> No</label><br>
+        <p>
+            Have you traveled outside of the state on a plane, train or public transportation in the last two weeks?
+        </p>
+        <input name="travel" type="radio" value=1>
+        <label for="travel">Yes</label>
+        <input name="travel" type="radio" value=0>
+        <label for="travel"> No</label><br>
+        <button type="submit">Send</button>
+
+    </form>
 </body>
-    
+
 
 </html>
