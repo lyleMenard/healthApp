@@ -64,3 +64,17 @@ h3{
  padding: 10px;
  padding: 10px;
 }
+p{
+ text-align: center;
+    margin-left: 25%;
+}
+form{
+ text-align: center;
+ margin-left: 25%;
+ font-family: sans-serif;
+ font-size: 200%;
+}
+button{
+    font-size: 200%;
+    margin: 10px;
+}
