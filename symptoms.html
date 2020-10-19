@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
     <form name="submit-to-google-sheet">
         <input name="email" type="email" placeholder="Email" required> <br>
@@ -31,6 +32,72 @@
         <label for="breath">No</label><br>
         <button type="submit">Send</button>
     </form>
+=======
+<HEAD
+<form name="submit-to-google-sheet">
+    <input name="email" type="email" placeholder="Email" required> <br>
+    <input name="first_name" type="text" placeholder="First Name"><br>
+    <input name="last_name" type="text" placeholder="Last Name"><br>
+    <input name="temp" type="text" placeholder="Temperature"><br>
+    <p>
+    Do you have a cough?
+    </p>
+    <input name="cough" type="radio" value=1>
+    <label for="cough">Yes</label>
+    <input name="cough" type="radio" value=0>
+    <label for="cough"> No</label><br>
+    <p>
+    Do you have a sore throat?
+    </p>
+    <input name="throat" type="radio" value=1>
+    <label for="throat">Yes</label>
+    <input name="throat" type="radio" value=0>
+    <label for="throat">No</label>
+    <p>
+    Do you have aches?
+    </p>
+    <input name="aches" type="radio" value=1>
+    <label for="aches">Yes</label>
+    <input name="aches" type="radio" value=0>
+    <label for="aches">No</label><br>
+    <p>
+    Do you have lose of taste or smell??
+    </p>
+    <input name="taste_smell" type="radio" value=1>
+    <label for="taste_smell">Yes</label>
+    <input name="taste_smell" type="radio" value=0>
+    <label for="taste_smell">No</label><br>
+    <p>
+    Do you have shortness of breath?
+    </p>
+    <input name="breath" type="radio" value=1>
+    <label for="breath">Yes</label>
+    <input name="breath" type="radio" value=0>
+    <label for="breath">No</label><br>
+    <button type="submit">Send</button>
+</form>
+
+
+
+
+<script>
+  const scriptURL = 'https://script.google.com/a/students.spa.edu/macros/s/AKfycbyZ9dPu2G8utf8ZQayPgvFsvcuQ1P7aR13HvitNdyd18o5jprc/exec'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+<<<<<<< HEAD
+
+
+=======
+<!DOCTYPE html>
+>>>>>>> 98cf345b2f660b8ac2189038c743d48fd43e4e51
+>>>>>>> a4bec3509451283cbf7354d347d47010415dd596
 <html lang="en">
 
 <head>
@@ -47,6 +114,7 @@
         <li><a href="about.html">About</a></li>
     </ul>
 
+<<<<<<< HEAD
     <script>
       const scriptURL = 'https://script.google.com/macros/s/AKfycbyZ9dPu2G8utf8ZQayPgvFsvcuQ1P7aR13HvitNdyd18o5jprc/exec'
       const form = document.forms['submit-to-google-sheet']
@@ -61,3 +129,11 @@
 </body>
 </body>
 </html>
+=======
+<<<<<<< HEAD
+</html>
+
+=======
+</html>
+>>>>>>> 98cf345b2f660b8ac2189038c743d48fd43e4e51
+>>>>>>> a4bec3509451283cbf7354d347d47010415dd596
