@@ -5,21 +5,7 @@
     <meta charset="utf-8">
     <title>Health App</title>
     <link rel="stylesheet" href="style.css">
-    <script>
-        const scriptURL = 'https://script.google.com/a/students.spa.edu/macros/s/AKfycbyZ9dPu2G8utf8ZQayPgvFsvcuQ1P7aR13HvitNdyd18o5jprc/exec'
-        const form = document.forms['submit-to-google-sheet']
-
-        form.addEventListener('submit', e => {
-            e.preventDefault()
-            fetch(scriptURL, {
-                    method: 'POST',
-                    body: new FormData(form)
-                })
-                .then(response => console.log('Success!', response))
-                .catch(error => console.error('Error!', error.message))
-        })
-
-    </script>
+    
 </head>
 
 <body>
@@ -45,8 +31,36 @@
         <input name="travel" type="radio" value=0>
         <label for="travel"> No</label><br>
         <button type="submit">Send</button>
-
+        <h1 id="result_output"></h1>
     </form>
+    <script>
+        const scriptURL = 'https://script.google.com/a/students.spa.edu/macros/s/AKfycbyZ9dPu2G8utf8ZQayPgvFsvcuQ1P7aR13HvitNdyd18o5jprc/exec'
+        const form = document.forms['submit-to-google-sheet']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => console.log('Success!', response))
+                .catch(error => console.error('Error!', error.message))
+        })
+        
+        var positive_value = parseInt(document.querySelector('input[name=positive]:checked').value);
+        var travel_value = parseInt(document.querySelector('input[name=travel]:checked').value);
+        
+        var symptom_count = positive_value + travel_value;
+        var symptom_thresh = 1;
+        
+        function gen_result() {
+            if (symptom_count >= symptom_thresh) {
+                document.getElementById("result_output").innerHTML="You are at risk for COVID exposure. Please stay home.";
+            } else {
+                document.getElementById("result_output").innerHTML="You are not at risk for exposure to COVID. If you were not a symptom risk, you can go to school.";
+            }
+        }
+    </script>
 </body>
 
 
